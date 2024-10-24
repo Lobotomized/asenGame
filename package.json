@@ -1,0 +1,17 @@
+{
+  "name": "asengames",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "asenGame": "cd Globby && npm install && npm start",
+    "cardGame":" cd cardGame && npm run prod ",
+    "start": "concurrently \"npm run cardGame\" \"npm run asenGame\""
+
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}

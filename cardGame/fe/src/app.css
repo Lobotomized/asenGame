@@ -1,0 +1,10 @@
+:root{
+    --card-background:#258c9f;
+    --active-stat-color:#6da4a7;
+    --letters-color:#122020;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+html, body, #app, main {
+    height:100%;
+}

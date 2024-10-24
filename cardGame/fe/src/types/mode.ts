@@ -1,0 +1,1 @@
+export type modeType = "betting" | "intelligence" | "agility" |"strength"
