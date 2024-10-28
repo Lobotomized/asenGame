@@ -46,8 +46,9 @@ function squareCollisionDetection(x1,y1,x2,y2,side){
 function dieAndReborn(player,players, killer){
     player.x = getRandomInt(500)
     player.y = getRandomInt(1000)
+    const tempKillerType = killer.type
     killer.type = player.type
-    player.type = getRandomType(players)
+    player.type = tempKillerType//getRandomType(players)
     player.directionX = null
     player.directionY = null
     player.width = 50
