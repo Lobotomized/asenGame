@@ -15,7 +15,7 @@ const types = [
     "paper",
     "scissors"
 ]
-const speed = 25;
+const speed = 5;
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
