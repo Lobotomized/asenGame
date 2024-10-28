@@ -43,9 +43,10 @@ function squareCollisionDetection(x1,y1,x2,y2,side){
     return false;
 }
 
-function dieAndReborn(player,players){
+function dieAndReborn(player,players, killer){
     player.x = getRandomInt(500)
     player.y = getRandomInt(1000)
+    killer.type = player.type
     player.type = getRandomType(players)
     player.directionX = null
     player.directionY = null
@@ -121,31 +122,31 @@ newG({
                 if(squareCollisionDetection(player.x,player.y,player2.x,player2.y,player.width)){
                     if(player.type === 'rock'){
                         if(player2.type === 'scissors'){
-                            dieAndReborn(player2, state.players)
+                            dieAndReborn(player2, state.players, player)
                             player.score+=1;
                         }
                         else if(player.type === 'paper'){
-                            dieAndReborn(player, state.players)
+                            dieAndReborn(player, state.players, player2)
                             player2.score+=1;
                         }
                     }
                     else if(player.type === 'paper'){
                         if(player2.type === "rock"){
-                            dieAndReborn(player2, state.players)
+                            dieAndReborn(player2, state.players, player)
                             player.score+=1
                         }
                         else if(player2.type === 'scissors'){
-                            dieAndReborn(player, state.players)
+                            dieAndReborn(player, state.players,player2)
                             player2.score+=1
                         }
                     }
                     else if(player.type === "scissors"){
                         if(player2.type === "paper"){
-                            dieAndReborn(player2, state.players)
+                            dieAndReborn(player2, state.players, player)
                             player.score+=1;
                         }
                         else if(player2.type === "rock"){
-                            dieAndReborn(player, state.players)
+                            dieAndReborn(player, state.players, player2)
                             player2.score+=1
                         }
                     }
