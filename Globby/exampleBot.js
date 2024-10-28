@@ -21,19 +21,37 @@ function getRandomInt(max) {
 }
 
 
-function getRandomType(players){
-    let typesLeft = [...types];
-    Object.keys(players).forEach((player) => {
-        typesLeft = typesLeft.filter((type) => {
-            return type != player.type
-        })
-    })
-    if(typesLeft.length === 0){
-        return types[getRandomInt(3)]
+function getRandomType(players) {
+    // Count the occurrences of each type
+    const typeCounts = {
+        rock: 0,
+        paper: 0,
+        scissors: 0
+    };
+
+    for (const player in players) {
+        const playerType = players[player].type;
+        if (typeCounts.hasOwnProperty(playerType)) {
+            typeCounts[playerType]++;
+        }
     }
-    else{
-        return typesLeft[getRandomInt(typesLeft.length)]
+
+    // Find the type with the minimum count
+    let minCount = Infinity;
+    const leastTypes = [];
+
+    for (const type in typeCounts) {
+        if (typeCounts[type] < minCount) {
+            minCount = typeCounts[type];
+            leastTypes.length = 0; // Reset the array
+            leastTypes.push(type);
+        } else if (typeCounts[type] === minCount) {
+            leastTypes.push(type);
+        }
     }
+
+    // Return a random type from the leastTypes array
+    return leastTypes[Math.floor(Math.random() * leastTypes.length)];
 }
 
 function squareCollisionDetection(x1,y1,x2,y2,side){
