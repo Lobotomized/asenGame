@@ -157,6 +157,7 @@ newG({
         })
         //State Change on every frame
     },
+    delay:10,
     joinBlockerFunction: function(){
         return true
     },
