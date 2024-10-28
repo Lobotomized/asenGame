@@ -94,7 +94,7 @@ function moveTowards(currentPosition, targetPosition, speed) {
         currentPosition.y = 1000;
     }
     else if(currentPosition.y < 0){
-        currentPosition.y = 0;
+        currentPosition.y = 25;
     }
 }
 
