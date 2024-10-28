@@ -69,8 +69,8 @@ function dieAndReborn(player,players, killer){
     player.type = tempKillerType//getRandomType(players)
     player.directionX = null
     player.directionY = null
-    player.width = 50
-    player.height =50
+    player.width = 35
+    player.height =35
     player.score = 0;
 }
 
