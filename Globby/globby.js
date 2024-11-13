@@ -168,18 +168,14 @@ const newGame = function (properties) {
         this.disconnected = [];
 
         this.move = (socketId, move) => {
-            let player = state.playersConfigArray.find((pl) => {
-                return pl.socketId == socketId
-            })
-
-            const blocker = startBlockerFunction(minPlayers, maxPlayers, state.playersConfigArray, state)
-
-            if (blocker != undefined) {
-                return blocker;
-            }
-
-            moveFunction(player, move, state)
-        }
+            const player = state.playersConfigArray.find((pl) => pl.socketId == socketId);
+            if (!player) return; // If player not found, return early
+    
+            const blocker = startBlockerFunction(minPlayers, maxPlayers, state.playersConfigArray, state);
+            if (blocker != undefined) return blocker; // If blocker is defined, return it
+    
+            moveFunction(player, move, state);
+        };
 
         this.timeFunction = () => {
 
